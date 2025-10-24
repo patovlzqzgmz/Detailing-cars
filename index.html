@@ -1,0 +1,759 @@
+  <!DOCTYPE html>
+  <html lang="es">
+  <head> <!--Recuerda que head solo es visible para los desarrolladores web-->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>DetailPro MX</title>
+      <meta name="description" content="Servicios de detailing automotriz a domicilio: lavado profesional, interior, pulido y protección.">
+      <meta name="keywords" content="detailing, lavado de autos, pulido, cerámico, interior, exterior, a domicilio">
+      <meta name="author" content="Pato">
+      <meta name="copyright" content="2025 DetailPro MX">
+      <meta name="application-name" content="DetailPro MX">
+      <meta name="generator" content="VSCode">
+
+      <!--Bootstrap CSS (CDN)-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="styles.css">
+
+      <!-- para íconos -->
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- ================== NAVBAR ================== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="img/LOGO.JPG" alt="DetailPro MX" height="28" class="align-text-top me-2">
+          <span class="fw-semibold">DetailPro MX</span>
+        </a>
+
+        <!-- Botón hamburguesa (móvil) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+<!-- Links del navbar -->
+<div class="collapse navbar-collapse" id="mainNavbar">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
+    <li class="nav-item"><a class="nav-link" href="#catalogo">Paquetes</a></li>
+    <li class="nav-item"><a class="nav-link" href="#tablaProductos">Insumos</a></li>
+  </ul>
+
+  <div class="d-flex align-items-center gap-2">
+    <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalAviso">
+      Aviso
+    </button>
+
+    <!-- Botón carrito -->
+    <button class="btn btn-primary position-relative" type="button"
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+      aria-controls="offcanvasCart" aria-label="Abrir carrito">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    </button>
+  </div>
+</div>
+
+
+    </nav>
+    <!-- ================ /NAVBAR ================== -->
+
+    <header class="container my-3">
+      <h1>DetailPro MX</h1>
+      <p>Detailing a domicilio — exterior, interior, pulido y protección.</p>
+    </header>
+
+    <!--BANNER PROMOCIONAL -->
+    <section class="container my-3">
+      <div id="banner" class="p-4 rounded bg-dark text-white">
+        <h2 class="h4 mb-2">Promo de la semana</h2>
+        <p class="mb-0">-10% en Paquete Premium + sellado rápido gratuito</p>
+      </div>
+      <button id="btnPromo" class="btn btn-warning btn-sm mt-2">
+        Actualizar promoción
+      </button>
+    </section>
+
+    <div class="container mt-3">
+      <div class="alert alert-info" role="alert">
+        Agenda tu servicio hoy y recibe evaluación de pintura sin costo.
+      </div>
+    </div>
+
+    <main class="container my-4">
+
+      <!-- ============== CARRUSEL ============== -->
+      <div id="heroCarousel" class="carousel slide mb-4" data-bs-ride="carousel" aria-label="Promociones destacadas">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner rounded-3 shadow-sm">
+          <div class="carousel-item active">
+            <img src="img/IMAGEN1.jpg" class="d-block w-100 object-fit-cover" alt="Lavado exterior con espuma activa"
+                style="height:380px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block text-start">
+              <h5>Espuma activa + dos cubetas</h5>
+              <p>Lavado exterior seguro para tu pintura.</p>
+              <a href="#catalogo" class="btn btn-primary btn-sm">Ver paquetes</a>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/IMAGEN2.webp" class="d-block w-100" alt="Limpieza profunda de interiores"
+                style="height:380px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Interior Pro</h5>
+              <p>Aspirado, plásticos, tejidos y protección UV.</p>
+              <a href="#tablaProductos" class="btn btn-light btn-sm">Insumos</a>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/IMAGEN3.jpg" class="d-block w-100" alt="Protección sintética"
+                style="height:380px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block text-end">
+              <h5>Sellado sintético</h5>
+              <p>Brillo y protección hasta 6 meses.</p>
+              <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalCupon">
+                Más opciones
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <!-- ============ /CARRUSEL ============ -->
+
+      <div class="row g-4">
+        <!-- ===Columna izquierda (CATÁLOGO) === -->
+        <div class="col-12 col-lg-8" id="catalogo">
+
+          <!-- ===Card 1: Paquete Exterior Seguro === -->
+          <div class="card shadow-sm mb-4">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="img/IMAGEN1.jpg" alt="Paquete Exterior Seguro" width="300"><br>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h2 class="card-tittle h4 mb-2">Paquete Exterior Seguro</h2>
+                  <p class="card-text mb-1">Prelavado, espuma activa, método dos cubetas, secado con microfibra.</p>
+                  <p class="card-text fs-5 fw-semibold text-success">$799</p>
+                  <h3 class="h5">Incluye:</h3>
+                  <ul class="mb-0 text-danger">
+                    <li>Descontaminación ligera</li>
+                    <li>Protección sintética rápida</li>
+                    <li>Llantas y cristales</li>
+                  </ul>
+                  <button
+  class="btn btn-primary add-to-cart mt-3"
+  data-id="exterior"
+  data-name="Paquete Exterior Seguro"
+  data-price="799">
+  <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
+</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===Card 2: Interior Pro === -->
+          <div class="card shadow-sm mb-4">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="img/IMAGEN2.webp" alt="Interior Pro" width="300"><br>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h2 class="card-tittle h4 mb-2">Interior Pro</h2>
+                  <p class="card-text mb-1">Aspirado profundo, limpieza de plásticos, telas y piel.</p>
+                  <p class="card-text fs-5 fw-semibold text-success">$899</p>
+                  <h3 class="h5">Incluye:</h3>
+                  <ul class="mb-0 text-danger">
+                    <li>Protección UV en tableros</li>
+                    <li>Neutralizador de olores</li>
+                    <li>Detalles en rejillas y mandos</li>
+                  </ul>
+                  <button
+  class="btn btn-primary add-to-cart mt-3"
+  data-id="interior"
+  data-name="Interior Pro"
+  data-price="899">
+  <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
+</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===Card 3: Pulido 1 Paso === -->
+          <div class="card shadow-sm mb-4">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="img/IMAGEN3.jpg" alt="Pulido 1 Paso" width="300"><br>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h2 class="card-tittle h4 mb-2">Pulido 1 Paso</h2>
+                  <p class="card-text mb-1">Corrección ligera de swirls y realce de brillo.</p>
+                  <p class="card-text fs-5 fw-semibold text-success">$2,200</p>
+                  <h3 class="h5">Incluye:</h3>
+                  <ul class="mb-0 text-danger">
+                    <li>Prueba de corte/finish</li>
+                    <li>Protección sintética</li>
+                    <li>Inspección con luces</li>
+                  </ul>
+                  <button
+  class="btn btn-primary add-to-cart mt-3"
+  data-id="pulido1"
+  data-name="Pulido 1 Paso"
+  data-price="2200">
+  <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
+</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--====CARD Premium Protection===========-->
+          <div class="card shadow-sm mb-4">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="img/IMAGEN4.webp" alt="Premium Protection" width="300"><br>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h2 class="card-tittle h4 mb-2">Premium Protection</h2>
+                  <p class="card-text mb-1">Sellado sintético + mantenimiento interior.</p>
+                  <p class="card-text fs-5 fw-semibold text-success">$1,499</p>
+                  <h3 class="h5">Incluye:</h3>
+                  <ul class="mb-0 text-danger">
+                    <li>Descontaminación férrica</li>
+                    <li>Protección hidrofóbica</li>
+                    <li>Repelente en cristales</li>
+                  </ul>
+                  <button
+  class="btn btn-primary add-to-cart mt-3"
+  data-id="premium"
+  data-name="Premium Protection"
+  data-price="1499">
+  <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
+</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TABLA DE INVENTARIO / INSUMOS -->
+        <!-- ========================================== -->
+        <h3 class="mt-5" id="tablaProductos">Tabla de insumos en bodega:</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Insumo</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr><td>Shampoo pH neutro</td><td>$320</td><td>5</td></tr>
+              <tr><td>Descontaminante férrico</td><td>$450</td><td>8</td></tr>
+              <tr><td>Protección sintética</td><td>$600</td><td>7</td></tr>
+              <tr><td>Pad de pulido medio</td><td>$180</td><td>12</td></tr>
+              <tr><td>Microfibra 500gsm</td><td>$90</td><td>20</td></tr>
+              <tr><td>APC concentrado</td><td>$350</td><td>6</td></tr>
+              <tr><td>Protector de plásticos UV</td><td>$280</td><td>9</td></tr>
+              <tr><td>Repelente de lluvia</td><td>$220</td><td>10</td></tr>
+              <tr><td>Desengrasante cítrico</td><td>$260</td><td>7</td></tr>
+              <tr><td>Aromatizante premium</td><td>$150</td><td>15</td></tr>
+            </tbody>
+            <tfoot class="table-light fw-bold">
+              <tr>
+                <td colspan="2">Total</td>
+                <td>99</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN COLAPSABLE -->
+        <!-- ========================================== -->
+        <section class="my-5">
+          <h3 class="h5 mb-3">Más información</h3>
+          <p>
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#infoExtra" aria-expanded="false" aria-controls="infoExtra">
+              Mostrar más detalles
+            </button>
+          </p>
+          <div class="collapse" id="infoExtra">
+            <div class="card card-body">
+              Realizamos servicios a domicilio con energía y agua propias cuando se requiere. Usamos técnicas seguras y productos grado profesional.
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ACORDEÓN -->
+        <!-- ========================================== -->
+        <section class="my-5">
+          <h3 class="h5 mb-3">Preguntas frecuentes</h3>
+          <div class="accordion" id="miAcordeon">
+
+            <!-- Pregunta 1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoUno">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelUno" aria-expanded="true" aria-controls="panelUno">
+                  ¿Cuánto dura un servicio?
+                </button>
+              </h2>
+              <div id="panelUno" class="accordion-collapse collapse show" aria-labelledby="encabezadoUno" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Entre 1.5 y 4 horas según paquete y tamaño del vehículo.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoDos">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelDos" aria-expanded="false" aria-controls="panelDos">
+                  ¿Qué necesito para el servicio a domicilio?
+                </button>
+              </h2>
+              <div id="panelDos" class="accordion-collapse collapse" aria-labelledby="encabezadoDos" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Un espacio seguro para trabajar y acceso al vehículo. Nosotros llevamos herramientas y productos.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoTres">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelTres" aria-expanded="false" aria-controls="panelTres">
+                  ¿Qué métodos de pago aceptan?
+                </button>
+              </h2>
+              <div id="panelTres" class="accordion-collapse collapse" aria-labelledby="encabezadoTres" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Transferencia, tarjetas y efectivo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- FORMULARIO DE PEDIDO -->
+        <!-- ========================================== -->
+        <section id="pedido" class="my-5">
+          <h3 class="h5 mb-3">Hacer pedido</h3>
+
+          <ul class="nav nav-pills mb-3" id="pillsPedido" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-producto-tab" data-bs-toggle="pill" data-bs-target="#pills-producto" type="button" role="tab" aria-controls="pills-producto" aria-selected="true">
+                1) Producto
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-personaliza-tab" data-bs-toggle="pill" data-bs-target="#pills-personaliza" type="button" role="tab" aria-controls="pills-personaliza" aria-selected="false">
+                2) Personaliza
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-notas-tab" data-bs-toggle="pill" data-bs-target="#pills-notas" type="button" role="tab" aria-controls="pills-notas" aria-selected="false">
+                3) Envío/Notas
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pillsPedidoContent">
+
+            <!-- Paso 1: Producto -->
+            <div class="tab-pane fade show active" id="pills-producto" role="tabpanel" aria-labelledby="pills-producto-tab" tabindex="0">
+              <form aria-label="Formulario de pedido (sin lógica por ahora)">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="selModelo" class="form-label">Paquete</label>
+                    <select id="selModelo" class="form-select">
+                      <option value="" selected disabled>Elige un paquete</option>
+                      <option>Exterior Seguro</option>
+                      <option>Interior Pro</option>
+                      <option>Pulido 1 Paso</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="selColor" class="form-label">Color exterior</label>
+                    <select id="selColor" class="form-select">
+                      <option value="" selected disabled>Elige</option>
+                      <option>Blanco</option>
+                      <option>Negro</option>
+                      <option>Rojo</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="inpCantidad" class="form-label">Cantidad (autos)</label>
+                    <input id="inpCantidad" type="number" min="1" value="1" class="form-control">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="nombreCliente" class="form-label">Tu nombre</label>
+                    <input type="text" id="nombreCliente" class="form-control" placeholder="Escribe tu nombre">
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Paso 2: Personaliza -->
+            <div class="tab-pane fade" id="pills-personaliza" role="tabpanel" aria-labelledby="pills-personaliza-tab" tabindex="0">
+              <p class="mb-2">Extras opcionales:</p>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="chkNombreNumero">
+                    <label class="form-check-label" for="chkNombreNumero">Descontaminación férrica</label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="chkParcheLiga">
+                    <label class="form-check-label" for="chkParcheLiga">Sellado cerámico rápido</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 3: Envío / Notas -->
+            <div class="tab-pane fade" id="pills-notas" role="tabpanel" aria-labelledby="pills-notas-tab" tabindex="0">
+              <div class="mb-3">
+                <label for="txtNotas" class="form-label">Notas o instrucciones</label>
+                <textarea id="txtNotas" class="form-control" rows="3" placeholder="Dirección, horario preferido, referencias..."></textarea>
+              </div>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAviso">
+                Enviar pedido
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODALES -->
+        <!-- ========================================== -->
+
+        <!-- Modal Aviso -->
+        <div class="modal fade" id="modalAviso" tabindex="-1" aria-labelledby="modalAvisoLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalAvisoLabel">Pedido enviado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                Tu solicitud fue recibida. Te contactaremos por WhatsApp para confirmar fecha y hora.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Cupón -->
+        <div class="modal fade" id="modalCupon" tabindex="-1" aria-labelledby="modalCuponLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-center">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCuponLabel">Cupón disponible</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                ¡Felicidades! Usa el cupón <strong>DETAIL10</strong> para 10% de descuento.
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">¡Listo!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Detalle Producto -->
+        <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDetalleLabel">Detalle del servicio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                Aquí se mostraría información más detallada del servicio seleccionado (tiempos, insumos y garantías).
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna lateral (ejemplos de tarjetas) -->
+        <div class="card mb-3">
+          <div class="card-header">Reseñas</div>
+          <div class="card-body">
+            <h5 class="card-title">Clientes felices</h5>
+            <p class="card-text">Más del 95% nos recomiendan por el cuidado y la atención al detalle.</p>
+            <a href="#testimonios" class="btn btn-primary btn-sm">Ver testimonios</a>
+          </div>
+        </div>
+
+        <div class="card mb-3" style="width: 100%;">
+          <img src="img/tortuga.jpeg" class="card-img-top" alt="Detalle de pintura con luz de inspección">
+          <div class="card-body">
+            <h5 class="card-title">Inspección de pintura</h5>
+            <p class="card-text">Usamos luz de trabajo para identificar micro-rayas y swirls.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Garantía</div>
+          <div class="card-body">
+            <h5 class="card-title">Satisfacción</h5>
+            <p class="card-text">Si algo no te encanta, volvemos para ajustarlo.</p>
+            <a href="#contacto" class="btn btn-primary btn-sm">Contactar</a>
+          </div>
+          <div class="card-footer">Aplican T&C</div>
+        </div>
+
+      </div>
+    </main>
+
+    <!--=========== /Contenido principal -MAIN- =============-->
+
+    <!--FORMULARIO DE CONTACTO-->
+    <section id="contacto" class="container my-5">
+      <h3 class="h5 mb-3">Contacto</h3>
+      <form id="formContacto" class="row g-3" aria-label="Formulario de contacto">
+        <!--Campo 1-->
+        <div class="col-md-6">
+          <label for="cNombre" class="form-label">Nombre</label>
+          <input type="text" id="cNombre" name="nombre" class="form-control" placeholder="Tu nombre">
+        </div>
+
+        <div class="col-md-6">
+          <label for="cEmail" class="form-label">Email</label>
+          <input type="email" id="cEmail" class="form-control" placeholder="tucorreo@ejemplo.com">
+        </div>
+
+        <div class="col-12">
+          <label for="cMsg" class="form-label">Mensaje</label>
+          <input type="cMsg" class="form-control" rows="3" placeholder="¿Qué paquete te interesa y en qué zona?">
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ================== MODALES ================== -->
+
+    <!-- Modal: Aviso general -->
+    <div class="modal fade" id="modalAviso" tabindex="-1" aria-labelledby="modalAvisoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalAvisoLabel">Aviso importante</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            Servicios a domicilio en CDMX y área metropolitana. 🚗💦
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+            <a href="#catalogo" class="btn btn-primary btn-sm">Ver paquetes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Cupón -->
+    <div class="modal fade" id="modalCupon" tabindex="-1" aria-labelledby="modalCuponLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalCuponLabel">Cupón de bienvenida</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            Usa el código <strong>DETAIL10</strong> y obtén 10% de descuento en tu primer servicio.
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">¡Listo!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Detalles del servicio -->
+    <div class="modal fade" id="modalDetalles" tabindex="-1" aria-labelledby="modalDetallesLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalDetallesLabel">Detalles del servicio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <img src="img/bag.jpg" alt="Pulido 1 paso" class="img-fluid rounded">
+              </div>
+              <div class="col-md-7">
+                <p class="mb-2">Evaluación de pintura, prueba de corte y acabado con polish de calidad.</p>
+                <ul class="mb-3">
+                  <li>Incluye descontaminación previa</li>
+                  <li>Trabajo por panel</li>
+                  <li>Tiempo estimado: 3–5 horas</li>
+                  <li>Garantía de satisfacción</li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="fs-5 fw-bold text-success">$2,200</span>
+                  <button class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p class="small text-muted mb-0">* Precios sujetos a tamaño del vehículo y estado de la pintura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================ /MODALES ================ -->
+
+    <!--TESTIMONIOS-->
+    <section id="testimonios" class="continer my-5">
+      <h3 class="h5 mb-3">Testimonios</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="p-3 border rounded testimonio testimonio-vip">
+            <h4 class="h6 mb-1">Lety (VIP)</h4>
+            <p class="mb-0">Mi SUV quedó como nueva. Puntuales y muy cuidadosos.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 border rounded testimonio">
+            <h4 class="h6 mb-1">Enrique</h4>
+            <p class="mb-0">Excelente brillo y protección. Repetiré el servicio.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="p-3 border rounded testimonio testimonio-vip">
+            <h4 class="h6 mb-1">María José (VIP)</h4>
+            <p class="mb-0">El interior quedó impecable y con aroma súper agradable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== BOTÓN WHATSAPP (flotante) ====== -->
+    <a
+      href="https://wa.me/527221234567"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chatea por WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="bg-dark text-center text-white py-3 mt-5">
+      ©️ 2025 DetailPro MX | Cuidamos tu auto como si fuera nuestro
+      <div class="mt-2">
+        <a href="https://www.facebook.com/tuusuario" target="_blank" rel="noopener"
+          class="text-white me-3" aria-label="Facebook">
+          <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener"
+          class="text-white me-3" aria-label="Instagram">
+          <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tuusuario" target="_blank" rel="noopener"
+          class="text-white me-3" aria-label="TikTok">
+          <i class="fab fa-tiktok fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.youtube.com/@tuusuario" target="_blank" rel="noopener"
+          class="text-white me-3" aria-label="YouTube">
+          <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="https://x.com/tuusuario" target="_blank" rel="noopener"
+          class="text-white" aria-label="X">
+          <i class="fab fa-x-twitter fa-lg" aria-hidden="true"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Enlace JS-->
+    <script src="app.js"></script>
+    <!-- ================== OFFCANVAS CARRITO ================== -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasCartLabel">
+      <i class="fa-solid fa-cart-shopping me-2"></i>Tu carrito
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItems" class="list-group mb-3">
+      <!-- Items renderizados por JS -->
+    </div>
+
+    <div class="mt-auto">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <strong>Total</strong>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <div class="d-flex gap-2">
+        <button id="btnClearCart" class="btn btn-outline-secondary w-50">
+          Vaciar
+        </button>
+        <button id="btnCheckout" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#modalAviso">
+          Pedir
+        </button>
+      </div>
+      <p class="small text-muted mt-2 mb-0">* El cupón <strong>DETAIL10</strong> se aplica al confirmar (si aplica).</p>
+    </div>
+  </div>
+</div>
+<!-- =============== /OFFCANVAS CARRITO =============== -->
+
+  </body>
+  </html>

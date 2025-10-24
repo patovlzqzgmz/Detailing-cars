@@ -1,0 +1,159 @@
+  :root{
+    /* paleta fría/pro: azul petróleo, cian y naranja de acento */
+    --c-primary: 200 88% 36%;   /* azul petróleo */
+    --c-secondary: 188 72% 28%; /* teal oscuro */
+    --c-accent: 24 95% 56%;     /* naranja */
+    --c-dark: 215 28% 17%;      /* gris azulado profundo */
+    --c-light: 210 40% 96%;     /* gris muy claro */
+
+    /* Override Bootstrap */
+    --bs-primary: hsl(var(--c-primary));
+    --bs-secondary: hsl(var(--c-secondary));
+    --bs-danger: hsl(var(--c-accent));
+    --bs-dark: hsl(var(--c-dark));
+    --bs-light: hsl(var(--c-light));
+  }
+
+  /* Fondo y tipografía base */
+  body{
+    margin:16px;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:hsl(var(--c-dark));
+    background:hsl(var(--c-light));
+  }
+
+  /* Títulos y texto */
+  h1{
+    color:hsl(var(--c-primary));
+    border-bottom:4px solid currentColor;
+  }
+  h2{ color:hsl(var(--c-secondary)); }
+  p{ font-size:18px; color:hsl(var(--c-dark) / 0.85); }
+
+  /* Lists y tablas */
+  li{ color:hsl(var(--c-accent)); }
+  th{ color:hsl(var(--c-secondary)); }
+  td{ color:hsl(var(--c-primary)); }
+
+  /* Enlaces */
+  a{
+    color:hsl(var(--c-primary));
+    border-bottom:2px solid currentColor;
+    text-decoration:none;
+  }
+  a:hover{ color:hsl(var(--c-accent)); }
+
+  /* Banner promo (mejor contraste) */
+  #banner{
+    background:hsl(var(--c-secondary)) !important;
+    color:hsl(var(--c-light)) !important;
+  }
+
+  /* Cards sutiles */
+  .card{ border-color:hsl(var(--c-primary) / 0.15); }
+  .card .card-title{ color:hsl(var(--c-secondary)); }
+
+  /* WhatsApp flotante */
+  .whatsapp-float{ background:hsl(var(--c-primary)); }
+  .whatsapp-float:hover,.whatsapp-float:focus{
+    background:hsl(var(--c-secondary));
+  }
+
+  .btn-primary{
+    --bs-btn-bg: hsl(var(--c-primary));
+    --bs-btn-border-color: hsl(var(--c-primary));
+    --bs-btn-hover-bg: hsl(var(--c-secondary));
+    --bs-btn-hover-border-color: hsl(var(--c-secondary));
+  }
+  .btn-outline-danger{
+    --bs-btn-color: hsl(var(--c-accent));
+    --bs-btn-border-color: hsl(var(--c-accent));
+    --bs-btn-hover-bg: hsl(var(--c-accent));
+    --bs-btn-hover-border-color: hsl(var(--c-accent));
+    --bs-btn-hover-color: #fff;
+  }
+
+  /* ===== Debajo sigue tu bloque base (lo conservo para tu curso) ===== */
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 16px;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+
+  /*palabra clave (keyword)*/
+  h1 {
+    color: hsl(var(--c-primary));
+    border-bottom: 4px solid currentColor;
+  }
+
+  h2 { color: hsl(var(--c-secondary)); }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: rgb(80, 80, 80);
+  }
+
+  li { color: hsl(var(--c-accent)); }
+  th { color: hsl(var(--c-secondary)); }
+  td { color: hsl(var(--c-primary)); }
+
+  a {
+    color: hsl(var(--c-primary));
+    border-bottom: 2px solid currentColor;
+    text-decoration: none;
+  }
+  a:hover { color: hsl(var(--c-accent)); }
+
+  /* Sugerencia opcional para que la imagen de la card no se deforme */
+  .object-fit-cover { object-fit: cover; }
+
+  /* ====== Botón flotante WhatsApp ====== */
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: hsl(var(--c-primary));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+    z-index: 1055;
+    text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+  .whatsapp-float.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .whatsapp-float:hover,
+  .whatsapp-float:focus {
+    background-color: hsl(var(--c-secondary));
+    transform: scale(1.08);
+    outline: none;
+  }
+
+  @media (max-width: 575.98px) {
+    footer { padding-bottom: 84px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-float { transition: none; }
+  }
+  /* Badge del carrito en navbar */
+  #cartBadge {
+    font-size: 0.7rem;
+    padding: 0.25em 0.45em;
+  }
